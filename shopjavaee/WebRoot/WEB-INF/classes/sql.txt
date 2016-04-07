@@ -1,0 +1,7 @@
+ CREATE TABLE trading(
+  businessRunWater int  NOT NULL AUTO_INCREMENT,
+  dealDate  datetime DEFAULT NULL,
+  money double DEFAULT NULL,
+  PRIMARY KEY (`businessRunWater`)
+);
+---------------------------------

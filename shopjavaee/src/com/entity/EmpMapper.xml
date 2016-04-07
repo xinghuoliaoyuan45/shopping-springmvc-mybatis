@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="empNamespace">
+	
+	<resultMap type="com.entity.Emp" id="empMap">
+		<id property="empId" column="empId"/>
+		<result property="empName"  column="empName"/>		
+		<result property="empSex"  column="empSex"/>
+		<result property="empOld" column="empOld"/>
+		<result property="empOne" column="empOne"/>
+		<result property="empPhone" column="empPhone"/>
+		<result property="empPrice" column="empPrice"/>
+	
+		
+	</resultMap>	
+	
+	<!-- 增加员工 -->
+	<insert id="add" parameterType="com.entity.Emp">
+		insert into employee(empId,empName,empPrice)
+		 values(#{empId},#{empName},#{empPrice})
+	</insert>
+	<select id="findemp" resultType="com.entity.Emp">
+	select empId,empName,empPrice from employee
+	</select>
+	<select id="findempbyname"  parameterType="string" resultType="com.entity.Emp">
+	select empId,empName,empPrice from employee where empName=#{empName}
+	</select>
+	<delete id="deleteemp" parameterType="string">
+	 delete from employee where empId=#{empId} 
+	</delete>
+	<update id="updateemp" parameterType="com.entity.Emp">
+	 update   set empName=#{empName},empPrice=#{empPrice}
+	 where empId=#{empId}
+	</update>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+

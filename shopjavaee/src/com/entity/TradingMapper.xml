@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="TradingNamespace">
+	
+	<resultMap type="com.entity.Trading" id="Trading">
+		<id property="businessRunWater" column="businessRunWater"/>
+		<result property="dealDate"  column="dealDate"/>
+		<result property="money"  column="money"/>			
+		
+	
+		
+	</resultMap>	
+	
+	<insert id="add" parameterType="com.entity.Trading">
+		insert into trading (dealDate,money) values (#{dealDate},#{money})
+	</insert>
+	<select id="find" resultType="com.entity.Trading">
+	    select * from trading
+	
+	</select>
+	<select id="findbymoney"  parameterType="int" resultType="com.entity.Trading">
+	 select * from trading where money>#{money}
+	
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
